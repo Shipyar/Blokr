@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import Vue from 'vue';
 import Router from 'vue-router';
 
@@ -11,7 +10,7 @@ import SignUp from '@/components/Login/SignUp.vue';
 
 Vue.use(Router);
 
-const router = new Router({
+export default new Router({
   routes: [
     {
       path: '/',
@@ -36,13 +35,4 @@ const router = new Router({
       },
     },
   ],
-});
-
-router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser;
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-
-  if (requiresAuth && !currentUser) next('login');
-  else if (!requiresAuth && currentUser) next('login');
-  else next();
 });
