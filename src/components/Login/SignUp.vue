@@ -22,8 +22,8 @@ export default {
   methods: {
     signUp() {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then(msg => {
-          console.log("success");
+        .then(() => {
+          this.$router.replace('hello')
         })
         .catch(error => {
           // Handle Errors here.
@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .signup {
   margin-top: 40px;
 }

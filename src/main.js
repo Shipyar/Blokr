@@ -10,6 +10,7 @@ import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 
+let app;
 // Initialize Firebase
 const config = {
   apiKey: 'AIzaSyBS94JdmG5CIm0bgAuzuPRKjipnx6Nmh-E',
@@ -21,9 +22,12 @@ const config = {
 };
 
 firebase.initializeApp(config);
-
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app');
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app');
+  }
+});
