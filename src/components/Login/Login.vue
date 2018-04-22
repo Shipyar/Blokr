@@ -4,7 +4,7 @@
     <input type="email" placeholder="Email Address" v-model="email">
     <input type="password" placeholder="Password" v-model="password">
     <button type="submit" @click.prevent="login">Login</button>
-    <p><router-link to="/Signup">Create an account </router-link></p>
+    <p><router-link to="/sign-up">Create an account </router-link></p>
   </div>
 </template>
 
@@ -23,15 +23,14 @@ export default {
   methods: {
     login() {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-        .then(msg => {
-          alert('successful connection');
+        .then(() => {
+          this.$router.replace('hello')
         })
         .catch(err => {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
           // ...
-          alert('unsuccessful connection');
           console.log(errorCode + errorMessage);
         });
     }
@@ -39,7 +38,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .login {
   margin-top: 40px;
 }
