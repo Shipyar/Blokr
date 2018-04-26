@@ -1,8 +1,8 @@
 <template>
   <div class="signup">
     <h3>Signup</h3>
-    <input type="email" placeholder="Email Address" v-model="email">
-    <input type="password" placeholder="Password" v-model="password">
+    <input type="email" placeholder="Email Address" v-model="user.email">
+    <input type="password" placeholder="Password" v-model="user.password">
     <button type="submit" @click.prevent="signUp">Create Account</button>
     <p><router-link to="/Login">Back to Login</router-link></p>
   </div>
@@ -15,21 +15,15 @@ export default {
   name: "Login",
   data() {
     return {
-      email: "",
-      password: ""
+      user: {
+        email: '',
+        password: ''
+      }
     };
   },
   methods: {
     signUp() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.$router.replace('hello')
-        })
-        .catch(error => {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-        });
+      this.$store.dispatch('signUpUser', { email: this.user.email, password: this.user.password})
     }
   }
 };

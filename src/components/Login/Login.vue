@@ -24,10 +24,7 @@ export default {
   },
   methods: {
     login() {
-      firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
-        .then(() => {this.$router.replace('hello')})
-        .catch((err) => { console.log(err)}
-      );
+      this.$store.dispatch('signInUser', { email: this.user.email, password: this.user.password})
     }
   }
 };
