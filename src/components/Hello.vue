@@ -1,6 +1,9 @@
 <template>
-  <div class="button">
-    <button @click="signOut">Sign Out!</button>
+  <div>
+    YOU ARE LOGGED IN
+    <div class="button">
+      <button @click="signOut">Sign Out!</button>
+    </div>
   </div>
 </template>
 
