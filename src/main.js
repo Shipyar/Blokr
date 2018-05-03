@@ -8,6 +8,10 @@ import router from './router';
 import store from './store';
 import './registerServiceWorker';
 
+//Vuetify for styling
+import Vuetify from 'vuetify'
+Vue.use(Vuetify)
+
 Vue.config.productionTip = false;
 
 let app;
