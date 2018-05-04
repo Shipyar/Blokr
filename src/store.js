@@ -12,24 +12,27 @@ export default new Vuex.Store({
   },
   getters: {
     user(state) {
-      return state.user;
+      return state.user
     },
     error(state) {
-      return state.error;
+      return state.error
+    },
+    loading(state) {
+      return state.loading
     }
   },
   mutations: {
     setUser(state, payload) {
-      state.user = payload;
+      state.user = payload
     },
     setLoading(state, payload) {
-      state.loading = payload;
+      state.loading = payload
     },
     setError(state, payload) {
-      state.error = payload;
+      state.error = payload
     },
     clearError(state, payload) {
-      state.error = null;
+      state.error = null
     }
   },
   actions: {

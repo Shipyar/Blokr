@@ -55,7 +55,12 @@
                 <v-layout row>
                   <v-flex xs6>
                     <v-btn type="submit"
-                    @click.prevent="signUp">Submit</v-btn>
+                    @click.prevent="signUp"
+                    color="secondary"
+                    :loading="loading"
+                    :disabled="loading">
+                    Submit
+                    </v-btn>
                   </v-flex>
                   <v-flex xs6>
                     <v-btn to="/login">Login</v-btn>
@@ -92,7 +97,10 @@ export default {
       return this.$store.getters.user
     },
     error() {
-      return this.$store.getters.error;
+      return this.$store.getters.error
+    },
+    loading() {
+      return this.$store.getters.loading
     }
   },
   watch: {
