@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-layout row v-if="error">
+      <v-flex xs12 sm6 offset-sm3>
+        <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
+      </v-flex>
+    </v-layout>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
@@ -56,7 +61,6 @@
 <script>
 // Firebase Import for login systems
 import 'vuetify/dist/vuetify.min.css'
-import firebase from "firebase";
 
 export default {
   name: 'Login',
@@ -71,6 +75,9 @@ export default {
   computed: {
     currentUser() {
       return this.$store.getters.user
+    },
+    error() {
+      return this.$store.getters.error
     }
   },
   watch: {
@@ -83,6 +90,9 @@ export default {
   methods: {
     login() {
       this.$store.dispatch('signInUser', { email: this.user.email, password: this.user.password})
+    },
+    onDismissed() {
+      this.$store.dispatch('clearError')
     }
   }
 };
