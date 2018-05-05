@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import 'vuetify/dist/vuetify.min.css';
-
 export default {
   props: ['text'],
   methods: {
@@ -16,7 +14,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
