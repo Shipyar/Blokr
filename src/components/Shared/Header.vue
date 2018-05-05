@@ -13,7 +13,6 @@
 
 <script>
 export default {
-
   methods: {
     async signOut() {
       console.log('starting Logout')
