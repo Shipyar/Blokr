@@ -1,29 +1,15 @@
 <template>
   <div>
-    YOU ARE LOGGED IN
-    <div class="button">
-      <button @click="signOut">Sign Out!</button>
-    </div>
+    <app-header></app-header>
   </div>
 </template>
 
 <script>
-import firebase from 'firebase';
+import Header from '@/components/Shared/Header.vue'
 
 export default {
-  methods: {
-    signOut() {
-      firebase.auth().signOut().then(() => {
-        // Signout successful
-        this.$router.replace('login')
-      }).catch((err) => {
-        // Error happened
-      })
-    }
-  }
+  components: {
+    'app-header': Header
+  },
 }
 </script>
-
-<style>
-
-</style>
