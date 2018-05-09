@@ -51,7 +51,6 @@
 <script>
 // Firebase Import for login systems
 import Header from '@/components/Shared/Header.vue'
-import 'vuetify/dist/vuetify.min.css'
 
 export default {
   name: 'Login',

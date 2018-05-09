@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import firebase from "firebase";
 import Header from '@/components/Shared/Header.vue'
 
 export default {
