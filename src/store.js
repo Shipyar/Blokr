@@ -36,7 +36,7 @@ export default new Vuex.Store({
     clearError(state) {
       state.error = null;
     },
-    clearuser(state) {
+    clearUser(state) {
       state.user = null;
     },
   },
@@ -78,6 +78,7 @@ export default new Vuex.Store({
       commit('clearError');
       firebase.auth().signOut().then(() => {
         commit('clearUser');
+        commit('setLoading', false);
       }).catch((error) => {
         commit('setLoading', false);
         commit('setError', error);
