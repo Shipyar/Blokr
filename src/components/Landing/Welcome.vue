@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-toolbar class="white" flat fixed>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-    </v-toolbar>
+    <app-header/>
     <v-content>
       <section>
         <v-parallax height="600" class="temp-color">
@@ -175,7 +173,12 @@
 </template>
 
 <script>
+import Header from '@/components/Shared/Header.vue';
+
 export default {
+  components: {
+    'app-header': Header
+  },
   data() {
     return {
       title: "Blokr"

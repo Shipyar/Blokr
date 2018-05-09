@@ -1,5 +1,6 @@
 <template>
   <v-content>
+    <app-header/>
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
@@ -49,6 +50,7 @@
 
 <script>
 // Firebase Import for login systems
+import Header from '@/components/Shared/Header.vue'
 import 'vuetify/dist/vuetify.min.css'
 
 export default {
@@ -60,6 +62,9 @@ export default {
         password: '',
       }
     };
+  },
+  components: {
+    'app-header': Header
   },
   computed: {
     currentUser() {

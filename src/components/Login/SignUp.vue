@@ -1,5 +1,6 @@
 <template>
   <v-content>
+    <app-header/>
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
@@ -58,9 +59,10 @@
 
 <script>
 import firebase from "firebase";
+import Header from '@/components/Shared/Header.vue'
 
 export default {
-  name: "Login",
+  name: "Signup",
   data() {
     return {
       user: {
@@ -69,6 +71,9 @@ export default {
         confirmPassword: ''
       }
     };
+  },
+  components: {
+    'app-header': Header
   },
   computed: {
     comparePassword() {
