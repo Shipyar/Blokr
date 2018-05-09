@@ -1,3 +1,5 @@
+/* eslint linebreak-style: ["error", "windows"] */
+/* eslint no-param-reassign: ["error", { "props": false }] */
 import Vue from 'vue';
 import Vuex from 'vuex';
 import firebase from 'firebase';
@@ -8,86 +10,81 @@ export default new Vuex.Store({
   state: {
     user: null,
     loading: false,
-    error: null
+    error: null,
   },
   getters: {
     user(state) {
-      return state.user
+      return state.user;
     },
     error(state) {
-      return state.error
+      return state.error;
     },
     loading(state) {
-      return state.loading
-    }
+      return state.loading;
+    },
   },
   mutations: {
     setUser(state, payload) {
-      state.user = payload
+      state.user = payload;
     },
     setLoading(state, payload) {
-      state.loading = payload
+      state.loading = payload;
     },
     setError(state, payload) {
-      state.error = payload
+      state.error = payload;
     },
-    clearError(state, payload) {
-      state.error = null
-    }
+    clearError(state) {
+      state.error = null;
+    },
+    clearuser(state) {
+      state.user = null;
+    },
   },
   actions: {
     signUpUser({ commit }, payload) {
-      commit('setLoading', true)
-      commit('clearError')
+      commit('setLoading', true);
+      commit('clearError');
       firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
-      .then(
-        user => {
-          commit('setLoading', false)
+        .then((user) => {
+          commit('setLoading', false);
           const newUser = {
             id: user.uid,
-            bloks: []
-          }
-          commit('setUser', newUser)
-        }
-      )
-      .catch(
-        error => {
-          commit('setLoading', false)
-          commit('setError', error)
-        }
-      )
+            bloks: [],
+          };
+          commit('setUser', newUser);
+        }).catch((error) => {
+          commit('setLoading', false);
+          commit('setError', error);
+        });
     },
     signInUser({ commit }, payload) {
-      commit('setLoading', true)
-      commit('clearError')
+      commit('setLoading', true);
+      commit('clearError');
       firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
-      .then(
-        user => {
-          commit('setLoading', false)
+        .then((user) => {
+          commit('setLoading', false);
           const newUser = {
             id: user.uid,
-            bloks: []
-          }
-          commit('setUser', newUser)
-        }
-      )
-      .catch(
-        error => {
-          commit('setLoading', false)
-          commit('setError', error)
-        }
-      )
+            bloks: [],
+          };
+          commit('setUser', newUser);
+        }).catch((error) => {
+          commit('setLoading', false);
+          commit('setError', error);
+        });
     },
     signOutUser({ commit }) {
+      commit('setLoading', true);
+      commit('clearError');
       firebase.auth().signOut().then(() => {
-        // Signout successful
-      }).catch((err) => {
-        // Error happened
-        console.log(err)
-      })
+        commit('clearUser');
+      }).catch((error) => {
+        commit('setLoading', false);
+        commit('setError', error);
+      });
     },
     clearError({ commit }) {
-      commit('clearError')
-    }
+      commit('clearError');
+    },
   },
 });
