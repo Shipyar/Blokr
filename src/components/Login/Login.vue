@@ -1,10 +1,10 @@
 <template>
   <v-content>
     <app-header/>
-    <v-container fluid fill-height>
+    <v-container fluid fill-height class="background">
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
-          <v-card class="elevation-12">
+          <v-card class="elevation-6">
             <v-toolbar-title>
               <app-alert v-if="error"
                          @dismissed="onDismissed" 
@@ -95,4 +95,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.background{
+  background-color: #2AD19A;
+}
 </style>

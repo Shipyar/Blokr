@@ -1,9 +1,6 @@
 <template>
   <v-toolbar fixed light flat>
-    <v-toolbar-side-icon v-if="connected" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-    <v-toolbar-title>
-      Blokr 
-    </v-toolbar-title>
+    <router-link to="/" :src="image" class="logo" tag="img"></router-link>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn v-if="connected" flat @click="signOut">SignOut</v-btn>
@@ -14,10 +11,13 @@
 </template>
 
 <script>
+import Image from '@/assets/images/blokrlogo.png'
+
 export default {
   data() {
     return {
-      connected: false
+      connected: false,
+      image: Image
     }
   },
   methods: {
@@ -32,6 +32,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.logo {
+  width: 30px;
+  height: 30px;
+}
 </style>
+
