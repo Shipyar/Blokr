@@ -53,6 +53,12 @@
           </v-card>
         </v-flex>
       </v-layout>
+      <app-alert 
+        v-if="error"
+        @dismissed="onDismissed" 
+        :text="error.message"
+      >
+      </app-alert>
     </v-container>
   </v-content>
 </template>

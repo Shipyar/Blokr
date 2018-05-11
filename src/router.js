@@ -5,6 +5,7 @@ import Router from 'vue-router';
 import Hello from '@/components/Hello.vue';
 import Login from '@/components/Login/Login.vue';
 import SignUp from '@/components/Login/SignUp.vue';
+import NewBlok from '@/components/Bloks/NewBlok.vue';
 import Welcome from '@/components/Landing/Welcome.vue';
 
 Vue.use(Router);
@@ -25,6 +26,11 @@ const router = new Router({
       path: '/sign-up',
       name: 'SignUp',
       component: SignUp,
+    },
+    {
+      path: '/newblok',
+      name: 'NewBlok',
+      component: NewBlok,
     },
     {
       path: '/hello',
