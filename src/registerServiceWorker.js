@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-/* eslint linebreak-style: ["error", "windows"] */
-
 import { register } from 'register-service-worker';
 
 if (process.env.NODE_ENV === 'production') {

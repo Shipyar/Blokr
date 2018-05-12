@@ -1,5 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
-/* eslint no-param-reassign: ["error", { "props": false }] */
 import Vue from 'vue';
 import Vuex from 'vuex';
 import firebase from 'firebase';

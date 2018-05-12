@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 // import firebase from 'firebase'; commenting out till fixed
 import Vue from 'vue';
 import Router from 'vue-router';
