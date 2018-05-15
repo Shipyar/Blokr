@@ -46,10 +46,10 @@
                       hint="MM/DD/YYYY format"
                       persistent-hint
                       prepend-icon="event"
-                      @blur="blok.date = parseDate(dateFormatted)"
+                      @blur="date = parseDate(dateFormatted)"
                     >
                     </v-text-field>
-                    <v-date-picker v-model="blok.date" no-title @input="due = false"></v-date-picker>
+                    <v-date-picker v-model="date" no-title @input="due = false"></v-date-picker>
                     </v-menu>
                   </v-form>
                   <v-btn
@@ -77,11 +77,12 @@ export default {
         blok: {
           title: '',
           comment: '',
-          date: null,
           priority: '',
         },
+        date: null,
         dateFormatted: null,
         due: false,
+        created: null,
         items: [
           { text: 'Critical' },
           { text: 'High' },
@@ -92,7 +93,7 @@ export default {
    },
    computed: {
       computedDateFormatted(){
-         return this.formatDate(this.blok.date)
+         return this.formatDate(this.date)
       },
       loading() {
         return this.$store.getters.loading
@@ -100,16 +101,18 @@ export default {
    },
    watch: {
       date(val) {
-        this.dateFormatted = this.formatDate(this.blok.date)
+        this.dateFormatted = this.formatDate(this.date)
       }
    },
    methods: {
     createBlok() {
+      this.created = new Date()
       this.$store.dispatch('createBlokr', { 
         title: this.blok.title, 
         priority: this.blok.priority.text,
         comment: this.blok.comment,
-        date: this.blok.date,
+        date: this.date,
+        created: this.created,
       })
     },
     formatDate (date) {
