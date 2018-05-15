@@ -1,32 +1,27 @@
 <template>
-  <v-snackbar :timeout="timeout"
-      :color="color"
-      :multi-line="mode === 'multi-line'"
-      :vertical="mode === 'vertical'"
-      v-model="snackbar"
+<v-card>
+  <v-snackbar
+    bottom
+    color="error"
+    v-model="snack"
   >
     {{ text }}
-    <v-btn dark flat @input="onClose" @click.native="snackbar = false">Close</v-btn>
+    <v-btn dark flat dissmisable @click.native="onClose">Close</v-btn>
   </v-snackbar>
-  <!-- <v-alert type="error" :value="true" dismissible @input="onClose">
-    {{ text }}
-  </v-alert> -->
+</v-card>
 </template>
 
 <script>
 export default {
-  props: ['text'],
+  props: ['text', 'snack'],
   data(){
     return {
-      snackbar: false,
-      color: 'red',
-      mode: 'multi-line',
-      timeout: 6000,
+      snack: false,
     }
   },
   methods: {
     onClose() {
-      this.$emit('dismissed')
+      this.$emit('dismissed');
     }
   }
 }

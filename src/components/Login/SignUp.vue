@@ -18,7 +18,7 @@
                                   v-model="user.email"
                                   required
                                   type="email"
-                                  prepend-icon="person">
+                                  prepend-icon="email">
                     </v-text-field>
                     <v-text-field name="password"
                                   label="Password"
@@ -59,6 +59,7 @@
         v-if="error"
         @dismissed="onDismissed" 
         :text="error.message"
+        :snack="true"
       >
       </app-alert>
     </v-container>
@@ -109,6 +110,7 @@ export default {
     },
     onDismissed() {
       this.$store.dispatch('clearError')
+      
     }
   }
 };

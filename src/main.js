@@ -8,7 +8,14 @@ import './registerServiceWorker';
 import alertCmp from './components/Shared/Alert.vue';
 import config from './config';
 
-Vue.use(Vuetify);
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#2AD19A',
+    secondary: '#0A1011',
+    accent: '#EF1A1C',
+    error: '#EF1A1C',
+  },
+});
 
 Vue.config.productionTip = false;
 
@@ -29,8 +36,8 @@ new Vue({
     });
     firebase.auth().onAuthStateChanged((usr) => {
       if (usr) {
-        this.$store.dispatch('autoSignIn', usr)
+        this.$store.dispatch('autoSignIn', usr);
       }
     });
   },
-}).$mount('#app')
+}).$mount('#app');

@@ -8,8 +8,12 @@
 import Header from '@/components/Shared/Header.vue'
 
 export default {
+  data(){
+    return {
+    }
+  },
   components: {
     'app-header': Header
-  },
+  }
 }
 </script>
