@@ -1,9 +1,6 @@
 <template>
-  <v-content>
-     <v-container>
-        <v-layout align-center justify-center>
-         <v-flex xs12 sm8 md4>
-            <v-card class="elevation-6">
+  <v-dialog max-width="500px">
+    <v-card class="elevation-6">
                <v-card-text>
                   <v-form>
                      <v-text-field 
@@ -53,10 +50,7 @@
                   </v-form>
                </v-card-text>
             </v-card>
-         </v-flex>
-        </v-layout>
-     </v-container>
-  </v-content>
+  </v-dialog>
 </template>
 
 <script>

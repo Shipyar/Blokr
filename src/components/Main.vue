@@ -1,8 +1,12 @@
 <template>
-  <v-content>
+  <v-app>
     <app-side-nav/>
-    <app-board/>
-  </v-content> 
+    <v-content>
+      <v-container fluid>
+        <app-board/>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>

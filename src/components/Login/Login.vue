@@ -51,8 +51,7 @@
         @dismissed="onDismissed" 
         :text="error.message"
         :snack="true"
-      >
-      </app-alert>
+      />
     </v-container>
   </v-content>
 </template>

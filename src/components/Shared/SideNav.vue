@@ -1,8 +1,9 @@
 <template>
-  <v-navigation-drawer 
-  flat
+  <v-navigation-drawer
+  app
   class="blokr-green"
   width="200"
+  floating
   >
     <v-list dense class="pt-0">
       <v-list-tile v-for="item in items" :key="item.title" @click="navigate(item)">
@@ -28,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   color: #fff;
 }

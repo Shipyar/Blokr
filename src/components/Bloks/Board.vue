@@ -1,12 +1,39 @@
 <template>
   <v-container>
-    TEST CONTENT
+    <v-layout row wrap>
+      <v-flex xs12>
+        Blokr
+
+        <v-btn
+        round
+        type="submit"
+        @click.stop="newBlok = true"
+        color="primary"
+        >
+        +
+        </v-btn>
+      </v-flex>
+      <app-new-blok
+        v-if="newBlok"
+      >
+      </app-new-blok>
+      <hr>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
-export default {
+import NewBlok from '@/components/Bloks/NewBlok.vue'
 
+export default {
+  data() {
+    return {
+      NewBlok: false,
+    }
+  },
+  components: {
+    'app-new-blok': NewBlok
+  }
 }
 </script>
 

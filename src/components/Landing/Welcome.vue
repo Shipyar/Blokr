@@ -10,7 +10,7 @@
             justify-center
             class="white--text"
           >
-            <h1 class="white--text mb-2 display-1 text-xs-center">Welcome to <span class="highlight">Blokr</span></h1>
+            <h1 class="white--text mb-2 display-1 text-xs-center">Welcome to <span class="highlight">Blokr.</span></h1>
             <div class="subheading mb-3 text-xs-center">Making your time more modular</div>
             <v-btn
               dark
