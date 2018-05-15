@@ -1,7 +1,7 @@
 // import firebase from 'firebase'; commenting out till fixed
 import Vue from 'vue';
 import Router from 'vue-router';
-import Hello from '@/components/Hello.vue';
+import Main from '@/components/Main.vue';
 import Login from '@/components/Login/Login.vue';
 import SignUp from '@/components/Login/SignUp.vue';
 import NewBlok from '@/components/Bloks/NewBlok.vue';
@@ -32,9 +32,9 @@ const router = new Router({
       component: NewBlok,
     },
     {
-      path: '/hello',
-      name: 'Hello',
-      component: Hello,
+      path: '/Blokr',
+      name: 'Main',
+      component: Main,
       meta: {
         requiresAuth: true,
       },

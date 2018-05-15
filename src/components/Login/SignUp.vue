@@ -2,8 +2,8 @@
   <v-content>
     <v-container fluid fill-height class="background">
       <v-layout row wrap>
-        <v-flex md8></v-flex>
-        <v-flex xs12 md4>
+        <v-flex md6></v-flex>
+        <v-flex xs12 md6>
           <v-layout row justify-center align-center>
             <v-flex xs8>
               <v-card class="elevation-2">
@@ -100,7 +100,7 @@ export default {
   watch: {
     currentUser(value) {
       if (value !== null && value !== undefined) {
-        this.$router.push('/hello')
+        this.$router.push('/Blokr')
       }
     }
   },
