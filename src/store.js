@@ -1,14 +1,21 @@
+import firebase from 'firebase';
+import 'firebase/firestore';
+import Vuefire from 'vuefire';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import firebase from 'firebase';
+import { db } from './main';
 
 Vue.use(Vuex);
+Vue.use(Vuefire);
 
 export default new Vuex.Store({
   state: {
     user: null,
     loading: false,
     error: null,
+    loadedBloks: [
+
+    ],
   },
   getters: {
     user(state) {
@@ -36,6 +43,9 @@ export default new Vuex.Store({
     },
     clearUser(state) {
       state.user = null;
+    },
+    createBlok(state, payload) {
+      state.loadedBloks.push(payload);
     },
   },
   actions: {
@@ -87,6 +97,22 @@ export default new Vuex.Store({
     },
     clearError({ commit }) {
       commit('clearError');
+    },
+    // Firebase database actions
+    createBlokr({ commit }, payload) {
+      const blok = {
+        title: payload.title,
+        priority: payload.priority,
+        comment: payload.comment,
+        date: payload.date,
+        created: payload.created,
+      };
+      db.collection('Bloks').add(blok)
+        .then((data) => {
+          commit('createBlok', blok);
+        })
+        .catch((error) => {
+        });
     },
   },
 });
