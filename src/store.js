@@ -1,14 +1,21 @@
+import firebase from 'firebase';
+import 'firebase/firestore';
+import Vuefire from 'vuefire';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import firebase from 'firebase';
+import db from './main'
 
 Vue.use(Vuex);
+Vue.use(Vuefire);
 
 export default new Vuex.Store({
   state: {
     user: null,
     loading: false,
     error: null,
+    loadedBloks: [
+
+    ]
   },
   getters: {
     user(state) {
@@ -37,6 +44,9 @@ export default new Vuex.Store({
     clearUser(state) {
       state.user = null;
     },
+    createBlok(state) {
+      state.loadedBloks.push(payload)
+    }
   },
   actions: {
     signUpUser({ commit }, payload) {
@@ -88,5 +98,22 @@ export default new Vuex.Store({
     clearError({ commit }) {
       commit('clearError');
     },
+    // Firebase database actions
+    createBlokr({ commit }, payload) {
+      const blok = {
+        title: payload.title,
+        priority: payload.priority,
+        comment: payload.comment,
+        date: payload.date,
+      }
+      db.collection('Bloks').add(blok)
+      .then((ref) => {
+        console.log('Doc written to db:' + ref)
+        commit('createBlok', blok)
+      })
+      .catch((error) => {
+        console.error('error writing doc:' + error)
+      })
+    }
   },
 });

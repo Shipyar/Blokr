@@ -1,7 +1,7 @@
 import firebase from 'firebase';
+import Vuetify from 'vuetify';
 import Vue from 'vue';
 import App from './App.vue';
-import Vuetify from 'vuetify';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
@@ -41,3 +41,5 @@ new Vue({
     });
   },
 }).$mount('#app');
+
+export const db = firebase.firestore();
