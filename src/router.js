@@ -2,9 +2,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Main from '@/components/Main.vue';
-import Login from '@/components/Login/Login.vue';
-import SignUp from '@/components/Login/SignUp.vue';
-import NewBlok from '@/components/Bloks/NewBlok.vue';
+// User Account Components
+import Login from '@/components/User/UserSignIn.vue';
+import SignUp from '@/components/User/UserSignUp.vue';
+// Blokr Components
+import NewBlok from '@/components/Blokr/BlokrCreate.vue';
+
 import Welcome from '@/components/Landing/Welcome.vue';
 
 Vue.use(Router);
@@ -17,12 +20,12 @@ const router = new Router({
       component: Welcome,
     },
     {
-      path: '/login',
+      path: '/SignIn',
       name: 'Login',
       component: Login,
     },
     {
-      path: '/sign-up',
+      path: '/SignUp',
       name: 'SignUp',
       component: SignUp,
     },

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import NewBlok from '@/components/Bloks/NewBlok.vue'
+import NewBlok from '@/components/Blokr/BlokrCreate.vue'
 
 export default {
   data() {

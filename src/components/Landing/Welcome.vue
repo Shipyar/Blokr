@@ -16,7 +16,7 @@
               dark
               large
               flat
-              to="/sign-up"
+              to="/SignUp"
             >
               Get Started
             </v-btn>

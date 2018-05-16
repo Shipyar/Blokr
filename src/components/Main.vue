@@ -11,7 +11,7 @@
 
 <script>
 import SideNav from '@/components/Shared/SideNav.vue'
-import Board from '@/components/Bloks/Board.vue'
+import Board from '@/components/Blokr/BlokrBoard.vue'
 
 export default {
   data(){
