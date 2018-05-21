@@ -5,6 +5,19 @@
   width="200"
   floating
   >
+    <v-layout row wrap mb-5 mt-2>
+      <v-flex
+        xs12
+        text-xs-center
+        layout
+        align-center
+        justify-center
+      >
+        <v-avatar color="accent">
+          <span class="white--text headline">OA</span>
+        </v-avatar>
+      </v-flex>
+    </v-layout>
     <v-list dense class="pt-0">
       <v-list-tile v-for="item in items" :key="item.title" @click="navigate(item)">
         <v-list-tile-content>
