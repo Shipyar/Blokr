@@ -12,7 +12,7 @@
                 right
                 round
                 type="submit"
-                @click.stop="newBlok = true"
+                @click.stop="dialog = true"
                 color="primary"
               >
               +
@@ -21,11 +21,22 @@
           </v-layout>
         </v-container>
       </v-flex>
+      <app-blokr-create :dialog="false"
+      />
     </section>
 </template>
 
 <script>
+import BCreate from '@/components/Blokr/BlokrCreate.vue';
+
 export default {
+  data() {
+    return {
+    }
+  },
+  components: {
+    'app-blokr-create': BCreate, 
+  },
 
 }
 </script>

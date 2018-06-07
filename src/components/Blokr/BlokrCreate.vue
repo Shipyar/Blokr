@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="500px">
+  <v-dialog max-width="500px" v-if="dialog = true">
     <v-card class="elevation-6">
         <v-card-text>
           <v-form>
@@ -66,6 +66,9 @@
 
 <script>
 export default {
+  props: [
+    'dialog',
+  ],
    data() {
       return {
         blok: {
