@@ -1,5 +1,6 @@
 <template>
-  <v-dialog max-width="500px" v-if="dialog = true">
+  <v-dialog max-width="500px" 
+    v-model="diag">
     <v-card class="elevation-6">
         <v-card-text>
           <v-form>
@@ -67,7 +68,7 @@
 <script>
 export default {
   props: [
-    'dialog',
+    'diag',
   ],
    data() {
       return {
@@ -85,7 +86,7 @@ export default {
           { text: 'High' },
           { text: 'Medium' },
           { text: 'Low' },
-        ]
+        ],
       }
    },
    computed: {

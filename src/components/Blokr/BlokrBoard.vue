@@ -11,15 +11,10 @@
     <section>
       <app-blokr-items/>
     </section>
-    <app-blokr-create
-
-    >
-    </app-blokr-create>
   </div>
 </template>
 
 <script>
-import NewBlok from '@/components/Blokr/BlokrCreate.vue'
 // BlokrBoard content imports
 import BlokrItems from '@/components/Blokr/BlokrItems.vue'
 import BlokrNav from '@/components/Blokr/BlokrNavigation.vue'
@@ -27,13 +22,14 @@ import BlokrNav from '@/components/Blokr/BlokrNavigation.vue'
 export default {
   data() {
     return {
-      NewBlok: false,
+      showDialog: false,
     }
   },
   components: {
-    'app-blokr-create': NewBlok,
     'app-blokr-nav': BlokrNav,
     'app-blokr-items': BlokrItems,
+  },
+  methods: {
   }
 }
 </script>

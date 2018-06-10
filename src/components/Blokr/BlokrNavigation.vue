@@ -12,7 +12,7 @@
                 right
                 round
                 type="submit"
-                @click.stop="dialog = true"
+                @click="showDialog = !showDialog"
                 color="primary"
               >
               +
@@ -21,8 +21,9 @@
           </v-layout>
         </v-container>
       </v-flex>
-      <app-blokr-create :dialog="false"
-      />
+      <app-blokr-create  
+        v-if="showDialog"
+        :diag="true"/>
     </section>
 </template>
 
@@ -32,6 +33,7 @@ import BCreate from '@/components/Blokr/BlokrCreate.vue';
 export default {
   data() {
     return {
+      showDialog: false
     }
   },
   components: {
