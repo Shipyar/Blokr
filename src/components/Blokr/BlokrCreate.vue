@@ -1,6 +1,6 @@
 <template>
   <v-dialog max-width="500px" 
-    v-model="diag">
+    v-model="newDiag">
     <v-card class="elevation-6">
         <v-card-text>
           <v-form>
@@ -87,6 +87,7 @@ export default {
           { text: 'Medium' },
           { text: 'Low' },
         ],
+        newDiag: this.diag,
       }
    },
    computed: {

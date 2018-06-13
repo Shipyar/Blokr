@@ -13,9 +13,7 @@ export default new Vuex.Store({
     user: null,
     loading: false,
     error: null,
-    loadedBloks: [
-
-    ],
+    loadedBloks: [],
   },
   getters: {
     user(state) {
@@ -49,6 +47,14 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    /*
+    Sign up user action
+    We set the loading state to be true, this allows us access
+    to use the spinner on all buttons in different views.
+    we also remove errors before submitting a new request to reduce any unwanted error handling.
+    firebase - we access the payload from the sign up view which had been broadcast
+
+    */
     signUpUser({ commit }, payload) {
       commit('setLoading', true);
       commit('clearError');
@@ -98,7 +104,17 @@ export default new Vuex.Store({
     clearError({ commit }) {
       commit('clearError');
     },
-    // Firebase database actions
+    /*
+    Storing an entry into the firestore,
+    we create a blok which is then added into the database
+    when there has been a successful response we
+    create a blok in the vuex store
+
+    -- TO DO --
+    Add successfull feeback to the databse store popup
+    Add error handling to the response warning message popup
+    we can access the setError mutation for this
+    */
     createBlokr({ commit }, payload) {
       const blok = {
         title: payload.title,
