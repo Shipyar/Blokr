@@ -115,13 +115,14 @@ export default new Vuex.Store({
     Add error handling to the response warning message popup
     we can access the setError mutation for this
     */
-    createBlokr({ commit }, payload) {
+    createBlokr({ commit, getters }, payload) {
       const blok = {
         title: payload.title,
         priority: payload.priority,
         comment: payload.comment,
-        date: payload.date,
-        created: payload.created,
+        completeAt: payload.date,
+        createdAt: payload.created,
+        userID: getters.user.id,
       };
       db.collection('Bloks').add(blok)
         .then((data) => {

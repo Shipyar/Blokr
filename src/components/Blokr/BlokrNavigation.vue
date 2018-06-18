@@ -1,7 +1,7 @@
 <template>
   <section>
       <v-flex xs12>
-        <v-container>
+        <v-container fluid>
           <v-layout row wrap justify-space-between>
             <v-flex xs6>
               <div class="subheading mt-3 text-xs-left">Blokr</div>
