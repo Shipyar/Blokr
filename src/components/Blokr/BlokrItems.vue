@@ -1,6 +1,6 @@
 <template>
   <v-flex xs12>
-    <v-container grid-list-xl>
+    <v-container fluid grid-list-xl>
       <v-layout row wrap align-center>
         <app-blokr-item/>
       </v-layout>
