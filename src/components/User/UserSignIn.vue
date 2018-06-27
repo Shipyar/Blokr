@@ -46,9 +46,9 @@
           </v-layout>
         </v-flex>
       </v-layout>
-      <app-alert 
+      <app-alert
         v-if="error"
-        @dismissed="onDismissed" 
+        @dismissed="onDismissed"
         :text="error.message"
         :snack="true"
       />
@@ -58,7 +58,7 @@
 
 <script>
 // Firebase Import for login systems
-import Header from '@/components/Shared/Header.vue'
+import Header from '@/components/Shared/Header.vue';
 
 export default {
   name: 'Login',
@@ -71,34 +71,34 @@ export default {
     };
   },
   components: {
-    'app-header': Header
+    'app-header': Header,
   },
   computed: {
     currentUser() {
-      return this.$store.getters.user
+      return this.$store.getters.user;
     },
     error() {
-      return this.$store.getters.error
+      return this.$store.getters.error;
     },
     loading() {
-      return this.$store.getters.loading
-    }
+      return this.$store.getters.loading;
+    },
   },
   watch: {
     currentUser(value) {
       if (value !== null && value !== undefined) {
-        this.$router.push('/Blokr')
+        this.$router.push('/Blokr');
       }
-    }
+    },
   },
   methods: {
     login() {
-      this.$store.dispatch('signInUser', { email: this.user.email, password: this.user.password})
+      this.$store.dispatch('signInUser', { email: this.user.email, password: this.user.password });
     },
     onDismissed() {
-      this.$store.dispatch('clearError')
-    }
-  }
+      this.$store.dispatch('clearError');
+    },
+  },
 };
 </script>
 

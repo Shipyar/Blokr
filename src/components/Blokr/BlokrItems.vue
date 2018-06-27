@@ -9,18 +9,18 @@
 </template>
 
 <script>
-import BlokrItem from '@/components/Blokr/BlokrItem.vue'
+import BlokrItem from '@/components/Blokr/BlokrItem.vue';
 
 export default {
   data() {
     return {
 
-    }
+    };
   },
   components: {
     'app-blokr-item': BlokrItem,
-  }
-}
+  },
+};
 </script>
 
 <style>

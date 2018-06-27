@@ -38,7 +38,7 @@
                                   prepend-icon="lock">
                     </v-text-field>
                   </v-form>
-                  <v-btn 
+                  <v-btn
                     round
                     block
                     type="submit"
@@ -55,9 +55,9 @@
           </v-layout>
         </v-flex>
       </v-layout>
-      <app-alert 
+      <app-alert
         v-if="error"
-        @dismissed="onDismissed" 
+        @dismissed="onDismissed"
         :text="error.message"
         :snack="true"
       >
@@ -67,52 +67,51 @@
 </template>
 
 <script>
-import Header from '@/components/Shared/Header.vue'
+import Header from '@/components/Shared/Header.vue';
 
 export default {
-  name: "Signup",
+  name: 'Signup',
   data() {
     return {
       user: {
         email: '',
         password: '',
-        confirmPassword: ''
-      }
+        confirmPassword: '',
+      },
     };
   },
   components: {
-    'app-header': Header
+    'app-header': Header,
   },
   computed: {
     comparePassword() {
-      return this.user.password !== this.user.confirmPassword ? 'Passwords dont match' : true
+      return this.user.password !== this.user.confirmPassword ? 'Passwords dont match' : true;
     },
     currentUser() {
-      return this.$store.getters.user
+      return this.$store.getters.user;
     },
     error() {
-      return this.$store.getters.error
+      return this.$store.getters.error;
     },
     loading() {
-      return this.$store.getters.loading
-    }
+      return this.$store.getters.loading;
+    },
   },
   watch: {
     currentUser(value) {
       if (value !== null && value !== undefined) {
-        this.$router.push('/Blokr')
+        this.$router.push('/Blokr');
       }
-    }
+    },
   },
   methods: {
     signUp() {
-      this.$store.dispatch('signUpUser', { email: this.user.email, password: this.user.password})
+      this.$store.dispatch('signUpUser', { email: this.user.email, password: this.user.password });
     },
     onDismissed() {
-      this.$store.dispatch('clearError')
-      
-    }
-  }
+      this.$store.dispatch('clearError');
+    },
+  },
 };
 </script>
 

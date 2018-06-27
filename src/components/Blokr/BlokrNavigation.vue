@@ -21,7 +21,7 @@
           </v-layout>
         </v-container>
       </v-flex>
-      <app-blokr-create  
+      <app-blokr-create
         v-if="showDialog"
         :diag="true"/>
     </section>
@@ -33,14 +33,14 @@ import BCreate from '@/components/Blokr/BlokrCreate.vue';
 export default {
   data() {
     return {
-      showDialog: false
-    }
+      showDialog: false,
+    };
   },
   components: {
-    'app-blokr-create': BCreate, 
+    'app-blokr-create': BCreate,
   },
 
-}
+};
 </script>
 
 <style>

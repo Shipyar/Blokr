@@ -54,6 +54,8 @@ export default new Vuex.Store({
     we also remove errors before submitting a new request to reduce any unwanted error handling.
     firebase - we access the payload from the sign up view which had been broadcast
 
+    TO-DO
+    Store the user information in the database once success has been returned
     */
     signUpUser({ commit }, payload) {
       commit('setLoading', true);
@@ -66,9 +68,9 @@ export default new Vuex.Store({
             bloks: [],
           };
           commit('setUser', newUser);
-        }).catch((error) => {
+        }).catch((e) => {
           commit('setLoading', false);
-          commit('setError', error);
+          commit('setError', e);
         });
     },
     signInUser({ commit }, payload) {
@@ -82,9 +84,9 @@ export default new Vuex.Store({
             bloks: [],
           };
           commit('setUser', newUser);
-        }).catch((error) => {
+        }).catch((e) => {
           commit('setLoading', false);
-          commit('setError', error);
+          commit('setError', e);
         });
     },
     signOutUser({ commit }) {
@@ -93,9 +95,9 @@ export default new Vuex.Store({
       firebase.auth().signOut().then(() => {
         commit('clearUser');
         commit('setLoading', false);
-      }).catch((error) => {
+      }).catch((e) => {
         commit('setLoading', false);
-        commit('setError', error);
+        commit('setError', e);
       });
     },
     autoSignIn({ commit }, payload) {
@@ -116,6 +118,8 @@ export default new Vuex.Store({
     we can access the setError mutation for this
     */
     createBlokr({ commit, getters }, payload) {
+      commit('setLoading', true);
+      commit('clearError');
       const blok = {
         title: payload.title,
         priority: payload.priority,
@@ -124,11 +128,14 @@ export default new Vuex.Store({
         createdAt: payload.created,
         userID: getters.user.id,
       };
-      db.collection('Bloks').add(blok)
-        .then((data) => {
+      db.collection('Bloks').doc().set(blok)
+        .then(() => {
           commit('createBlok', blok);
+          commit('setLoading', false);
         })
-        .catch((error) => {
+        .catch((e) => {
+          commit('setLoading', false);
+          commit('setError', e);
         });
     },
   },

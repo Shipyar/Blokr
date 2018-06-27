@@ -36,10 +36,10 @@ export default {
         { title: 'Team' },
         { title: 'Projects' },
         { title: 'My Board' },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -51,4 +51,3 @@ export default {
 }
 
 </style>
-

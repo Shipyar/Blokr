@@ -16,18 +16,18 @@ export default {
   data() {
     return {
       connected: false,
-    }
+    };
   },
   methods: {
     async signOut() {
       try {
-        await this.$store.dispatch('signOutUser')
+        await this.$store.dispatch('signOutUser');
       } finally {
-        this.$router.replace('login')
-      }  
-    }
-  }
-}
+        this.$router.replace('login');
+      }
+    },
+  },
+};
 </script>
 
 <style>

@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import 'vuetify/dist/vuetify.min.css'
+import 'vuetify/dist/vuetify.min.css';
 
 export default {
-  
-}
+
+};
 </script>
 
 <style lang="scss">

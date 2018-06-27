@@ -10,17 +10,17 @@
 </template>
 
 <script>
-import SideNav from '@/components/Shared/SideNav.vue'
-import Board from '@/components/Blokr/BlokrBoard.vue'
+import SideNav from '@/components/Shared/SideNav.vue';
+import Board from '@/components/Blokr/BlokrBoard.vue';
 
 export default {
-  data(){
+  data() {
     return {
-    }
+    };
   },
   components: {
     'app-side-nav': SideNav,
-    'app-board': Board
-  }
-}
+    'app-board': Board,
+  },
+};
 </script>

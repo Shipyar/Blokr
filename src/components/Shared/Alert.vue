@@ -14,15 +14,15 @@
 <script>
 export default {
   props: ['text', 'snack'],
-  data(){
+  data() {
     return {
       snack: false,
-    }
+    };
   },
   methods: {
     onClose() {
       this.$emit('dismissed');
-    }
-  }
-}
+    },
+  },
+};
 </script>

@@ -17,7 +17,7 @@ Vue.use(Vuetify, {
   },
 });
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 
 Vue.component('app-alert', alertCmp);
 
