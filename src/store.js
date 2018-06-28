@@ -68,7 +68,14 @@ export default new Vuex.Store({
             bloks: [],
           };
           commit('setUser', newUser);
-        }).catch((e) => {
+          db.collection('Users').add(ref.id)
+          .then(() => {
+
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+        }).catch((error) => {
           commit('setLoading', false);
           commit('setError', e);
         });

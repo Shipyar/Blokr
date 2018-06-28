@@ -16,11 +16,23 @@
             </v-flex>
             <v-flex xs6>
               <v-select
-                :items="items"
-                v-model="blok.priority"
-                label="Select Priority"
-                single-line
+                v-model="chips"
+                label="Tags"
+                chips
+                tags
+                append-icon=""
               >
+                <template slot="selection" slot-scope="data">
+                  <v-chip
+                    :selected="data.selected"
+                    color="primary"
+                    text-color="white"
+                    close
+                    @input="removeChip(data.item)"
+                  >
+                    <strong>{{ data.item }}</strong>&nbsp;
+                  </v-chip>
+                </template>
               </v-select>
             </v-flex>
             <v-flex xs6>
@@ -168,5 +180,4 @@ export default {
 </script>
 
 <style>
-
 </style>
